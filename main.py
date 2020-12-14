@@ -17,12 +17,11 @@ def run():
 def go_run():
     client = requests.session()
     headers = {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
-    p=100
-    while(p>0):
-        p = p - 1
-        response = client.post(url='http://127.0.0.1:31173/cimg', headers=headers, data=json.dumps(cImg))
-        print(response.text)
-        time.sleep(0.1)
+
+    response = client.post(url='http://127.0.0.1:31173/cimg', 
+                            headers=headers,
+                            data=json.dumps(cImg))
+    print(response.text)
     client.close()
 
 
@@ -30,16 +29,17 @@ if __name__ == "__main__":
     w = 1080
     h = 1920
     l = 10
-    start_time = time.time()
-    run()
-    end_time = time.time()
-    print("python",end_time - start_time)
 
     cImg ={
         "Width":w,
         "Height":h,
         "Length":l
     }
+
+    start_time = time.time()
+    run()
+    end_time = time.time()
+    print("python",end_time - start_time)
 
     start_time1 = time.time()
     go_run()
