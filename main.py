@@ -9,7 +9,7 @@ def go_run():
     client = requests.session()
     headers = {'Content-Type': 'application/json', 'Connection': 'keep-alive'}
 
-    response = client.post(url='http://127.0.0.1:31173/cimg', 
+    response = client.post(url='http://127.0.0.1:31173/img2Domino/shapeCone3d', 
                             headers=headers,
                             data=json.dumps(src_img_info))
     print(response.text)
@@ -19,17 +19,12 @@ def go_run():
 if __name__ == "__main__":
 
     img_name = "./images/pikachu001.jpg"
-    common_bgr_color ={'green':[0,255,0],
-                      'red':[0,0,255],
-                      'blue':[255,0,0],
-                      'orange':[0,165,255],
-                      'yellow':[0,255,255],
-                      'cyan':[255,127,0],
-                      'purple':[255,0,139],
-                      'faceA':[109,169,255],
-                      'black':[0,0,0],
-                      'white':[255,255,255],
-    }
+    common_bgr_color = [{"color":"green",
+                        "bgr":[0,255,0]},
+                        {"color":"yellow",
+                        "bgr":[255,0,0]},
+                        {"color":"red",
+                        "bgr":[0,0,255]}]
     src_img_info ={
         "img_name": img_name,
         "common_bgr_color": common_bgr_color,
@@ -37,6 +32,6 @@ if __name__ == "__main__":
 
     start_time = time.time()
     go_run()
-    # print(json.dumps(src_img_info))
+    print(json.dumps(src_img_info))
     end_time = time.time()
     print("go",end_time - start_time)
