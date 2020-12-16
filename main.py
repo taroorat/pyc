@@ -1,9 +1,6 @@
 import time
 import requests
 import json
-from numba import jit
-import cv2 
-import math
 
 def go_run():
     client = requests.session()
@@ -12,13 +9,13 @@ def go_run():
     response = client.post(url='http://127.0.0.1:31173/img2Domino/shapeCone3d', 
                             headers=headers,
                             data=json.dumps(src_img_info))
-    # print(response.text)
+    print(response.text)
     client.close()
 
 
 if __name__ == "__main__":
 
-    img_name = "./images/pikachu001.jpg"
+    img_name = "d:/GoPath/src/taro.117/gospyc/images/pikachu001.jpg"
     common_bgr_color = [{"color":"green",
                         "bgr":[0,255,0]},
                         {"color":"yellow",
