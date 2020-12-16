@@ -32,6 +32,6 @@ if __name__ == "__main__":
 
     start_time = time.time()
     go_run()
-    print(json.dumps(src_img_info))
+    # print(json.dumps(src_img_info))
     end_time = time.time()
     print("go",end_time - start_time)
