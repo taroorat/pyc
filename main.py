@@ -12,7 +12,7 @@ def go_run():
     response = client.post(url='http://127.0.0.1:31173/img2Domino/shapeCone3d', 
                             headers=headers,
                             data=json.dumps(src_img_info))
-    print(response.text)
+    # print(response.text)
     client.close()
 
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
                         "bgr":[255,0,0]},
                         {"color":"red",
                         "bgr":[0,0,255]}]
-    src_img_info ={
+    src_img_info = {
         "img_name": img_name,
         "common_bgr_color": common_bgr_color,
     }
